@@ -8,7 +8,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Error Login</title>
+		<title>Error login</title>
 		<link rel="stylesheet" type="text/css" href="estils/styles.css" />
 
 		<!-- Link CSS de Bootstrap -->
