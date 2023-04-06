@@ -36,8 +36,12 @@
 					<h3 class="text-primary" style="text-align: center;"><b>Formulari de selecció d'usuari</b></h3>
 					<p style="text-align: center;"><b>Indica la informació de l'usuari que vols veure les seves dades:</b></p>	
 					<div class="form-group">
-						<label for="UnitatOrg">Unitat organizativa:</label> 
-						<input type="text" name="ou" id="UnitatOrg" class="form-control" required>
+						<label for="ou">Unitat organitzativa:</label> 
+						<select name="ou" id="ou" class="form-control">
+                            <option value="usuaris">usuaris</option>
+                            <option value="administradors">administradors</option>
+                            <option value="desenvolupadors">desenvolupadors</option>
+                        </select>
 					</div>
                     <br>
                     <div class="form-group">
