@@ -1,0 +1,35 @@
+/* Estil per centrar algunes coses de la web al centre (formularis, alertes, enllaços...) */
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estil per donar ombra i una mica grandària als formularis  */
+.form-estils {
+  border: 1px solid;
+  border-radius: 10px;
+  width: 50%;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 25px, rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
+
+/* Estils per centrar el contingut a la taula de visualització de dades d'alumnes */
+table {
+  text-align: center;
+}
+
+/* Estils pel quadre informatiu de la pàgina d'inici */
+.inici_style {
+	border: 1px solid;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 25px, rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
+
+/* Estil per indicar el dia i l'hora a les pàgines de la web */
+.diahora {
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.6;
+}
