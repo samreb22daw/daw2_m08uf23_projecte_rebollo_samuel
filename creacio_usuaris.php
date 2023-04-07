@@ -1,67 +1,67 @@
 <?php
-require 'vendor/autoload.php';
-use Laminas\Ldap\Attribute;
-use Laminas\Ldap\Ldap;
-
-ini_set('display_errors', 0);
-#Dades de la nova entrada
-#
-if ($_POST['uid'] && $_POST['unorg'] && $_POST['num_id'] && $_POST['grup'] && $_POST['dir_pers'] && $_POST['sh'] && $_POST['cn'] && $_POST['sn'] && $_POST['nom'] && $_POST['adressa'] && $_POST['mobil'] && $_POST['telefon'] && $_POST['titol'] && $_POST['descripcio']){
-    $uid=$_POST['uid'];
-    $unorg=$_POST['unorg'];
-    $num_id=$_POST['num_id'];
-    $grup=$_POST['grup'];
-    $dir_pers=$_POST['dir_pers'];
-    $sh=$_POST['sh'];
-    $cn=$_POST['cn'];
-    $sn=$_POST['sn'];
-    $nom=$_POST['nom'];
-    $mobil=$_POST['mobil'];
-    $adressa=$_POST['adressa'];
-    $telefon=$_POST['telefon'];
-    $titol=$_POST['titol'];
-    $descripcio=$_POST['descripcio'];
-    $objcl=array('inetOrgPerson','organizationalPerson','person','posixAccount','shadowAccount','top');
-    #
-    #Afegint la nova entrada
-    $domini = 'dc=fjeclot,dc=net';
-    $opcions = [
-        'host' => 'zend-sarero.fjeclot.net',
-        'username' => "cn=admin,$domini",
-        'password' => 'fjeclot',
-        'bindRequiresDn' => true,
-        'accountDomainName' => 'fjeclot.net',
-        'baseDn' => 'dc=fjeclot,dc=net',
-    ];
-    $ldap = new Ldap($opcions);
-    $ldap->bind();
-    $entrada='uid='.$_POST['uid'].',ou='.$_POST['unorg'].',dc=fjeclot,dc=net';
-    $usuari=$ldap->getEntry($entrada);
+    require 'vendor/autoload.php';
+    use Laminas\Ldap\Attribute;
+    use Laminas\Ldap\Ldap;
     
-    if (empty($usuari)){
-        $nova_entrada = [];
-        Attribute::setAttribute($nova_entrada, 'objectClass', $objcl);
-        Attribute::setAttribute($nova_entrada, 'uid', $uid);
-        Attribute::setAttribute($nova_entrada, 'uidNumber', $num_id);
-        Attribute::setAttribute($nova_entrada, 'gidNumber', $grup);
-        Attribute::setAttribute($nova_entrada, 'homeDirectory', $dir_pers);
-        Attribute::setAttribute($nova_entrada, 'loginShell', $sh);
-        Attribute::setAttribute($nova_entrada, 'cn', $cn);
-        Attribute::setAttribute($nova_entrada, 'sn', $sn);
-        Attribute::setAttribute($nova_entrada, 'givenName', $nom);
-        Attribute::setAttribute($nova_entrada, 'mobile', $mobil);
-        Attribute::setAttribute($nova_entrada, 'postalAddress', $adressa);
-        Attribute::setAttribute($nova_entrada, 'telephoneNumber', $telefon);
-        Attribute::setAttribute($nova_entrada, 'title', $titol);
-        Attribute::setAttribute($nova_entrada, 'description', $descripcio);
-        $dn = 'uid='.$uid.',ou='.$unorg.',dc=fjeclot,dc=net';
-        if($ldap->add($dn, $nova_entrada)){
-            $usuariCreat = true;
+    ini_set('display_errors', 0);
+    #Dades de la nova entrada
+    #
+    if ($_POST['uid'] && $_POST['unorg'] && $_POST['num_id'] && $_POST['grup'] && $_POST['dir_pers'] && $_POST['sh'] && $_POST['cn'] && $_POST['sn'] && $_POST['nom'] && $_POST['adressa'] && $_POST['mobil'] && $_POST['telefon'] && $_POST['titol'] && $_POST['descripcio']){
+        $uid=$_POST['uid'];
+        $unorg=$_POST['unorg'];
+        $num_id=$_POST['num_id'];
+        $grup=$_POST['grup'];
+        $dir_pers=$_POST['dir_pers'];
+        $sh=$_POST['sh'];
+        $cn=$_POST['cn'];
+        $sn=$_POST['sn'];
+        $nom=$_POST['nom'];
+        $mobil=$_POST['mobil'];
+        $adressa=$_POST['adressa'];
+        $telefon=$_POST['telefon'];
+        $titol=$_POST['titol'];
+        $descripcio=$_POST['descripcio'];
+        $objcl=array('inetOrgPerson','organizationalPerson','person','posixAccount','shadowAccount','top');
+        #
+        #Afegint la nova entrada
+        $domini = 'dc=fjeclot,dc=net';
+        $opcions = [
+            'host' => 'zend-sarero.fjeclot.net',
+            'username' => "cn=admin,$domini",
+            'password' => 'fjeclot',
+            'bindRequiresDn' => true,
+            'accountDomainName' => 'fjeclot.net',
+            'baseDn' => 'dc=fjeclot,dc=net',
+        ];
+        $ldap = new Ldap($opcions);
+        $ldap->bind();
+        $entrada='uid='.$_POST['uid'].',ou='.$_POST['unorg'].',dc=fjeclot,dc=net';
+        $usuari=$ldap->getEntry($entrada);
+        
+        if (empty($usuari)){
+            $nova_entrada = [];
+            Attribute::setAttribute($nova_entrada, 'objectClass', $objcl);
+            Attribute::setAttribute($nova_entrada, 'uid', $uid);
+            Attribute::setAttribute($nova_entrada, 'uidNumber', $num_id);
+            Attribute::setAttribute($nova_entrada, 'gidNumber', $grup);
+            Attribute::setAttribute($nova_entrada, 'homeDirectory', $dir_pers);
+            Attribute::setAttribute($nova_entrada, 'loginShell', $sh);
+            Attribute::setAttribute($nova_entrada, 'cn', $cn);
+            Attribute::setAttribute($nova_entrada, 'sn', $sn);
+            Attribute::setAttribute($nova_entrada, 'givenName', $nom);
+            Attribute::setAttribute($nova_entrada, 'mobile', $mobil);
+            Attribute::setAttribute($nova_entrada, 'postalAddress', $adressa);
+            Attribute::setAttribute($nova_entrada, 'telephoneNumber', $telefon);
+            Attribute::setAttribute($nova_entrada, 'title', $titol);
+            Attribute::setAttribute($nova_entrada, 'description', $descripcio);
+            $dn = 'uid='.$uid.',ou='.$unorg.',dc=fjeclot,dc=net';
+            if($ldap->add($dn, $nova_entrada)){
+                $usuariCreat = true;
+            }
+        }else {
+            header("location: error_creacio.php");
         }
-    }else {
-        header("location: error_creacio.php");
     }
-}
 ?>
 
 <!DOCTYPE html>

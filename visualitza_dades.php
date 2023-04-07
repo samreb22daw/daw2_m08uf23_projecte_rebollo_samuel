@@ -45,7 +45,7 @@
 					</div>
                     <br>
                     <div class="form-group">
-						<label for="usuari">Usuari:</label> 
+						<label for="usuari">Usuari (uid):</label> 
 						<input type="text" name="usr" id="usuari" class="form-control" required>
 					</div>
                     <br>
