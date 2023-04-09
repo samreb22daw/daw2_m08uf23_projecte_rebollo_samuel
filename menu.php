@@ -28,7 +28,10 @@
 						<a class="nav-link" href="esborrar_usuaris.php">Esborrament d'usuaris</a>
 					</li>
 					<li id="prova" class="nav-item">
-						<a class="nav-link" href="">Modificació d'usuaris</a>
+						<a class="nav-link" href="modificar_usuaris.php">Modificació d'usuaris</a>
+					</li>
+					<li id="prova" class="nav-item">
+						<a class="nav-link" href="index.php">Torna a inici</a>
 					</li>
 				</ul>
 			</div>
@@ -49,11 +52,13 @@
 							<p><a href='visualitza_dades.php'>Visualització de dades</a></p>
 							<p><a href='creacio_usuaris.php'>Creació d'usuaris</a></p>
 							<p><a href='esborrar_usuaris.php'>Esborrament d'usuaris</a></p>
+							<p><a href='modificar_usuaris.php'>Modificació d'usuaris</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<br><br>
+			<p style="text-align: center;"><a href="index.php">Torna a inici</a></p>
 			<div class="abs-center">
 				<label class="diahora"> 
 					<?php
