@@ -8,7 +8,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Error esborrament d'usuaris</title>
+		<title>Error d'esborrament d'usuaris</title>
 		<link rel="stylesheet" type="text/css" href="estils/styles.css" />
 
 		<!-- Link CSS de Bootstrap -->

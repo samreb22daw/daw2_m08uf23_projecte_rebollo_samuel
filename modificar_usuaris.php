@@ -5,7 +5,7 @@
 	
 	ini_set('display_errors', 0);
     #
-	# Atribut a modificar --> Atribut recollit al formulari
+	# Atribut a modificar: Atribut recollit al formulari
 	#
     if ( $_POST["unorg"] && $_POST['uid'] && $_POST['atribut'] && $_POST['nouValor']){
         if ($_POST['metode'] == "PUT"){
